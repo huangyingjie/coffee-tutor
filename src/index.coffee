@@ -1,2 +1,2 @@
-leaf = require 'coffee!./leaf.coffee'
+leaf = require './leaf.coffee'
 console.log leaf.level

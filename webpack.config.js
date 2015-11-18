@@ -1,8 +1,8 @@
 /*jshint node:true*/
 var entry = {};
 var path = require('path');
-var srcDir = './app/';
-require('glob').sync(srcDir + 'src/**/index.coffee').forEach(function (f) {
+var srcDir = './src/';
+require('glob').sync(srcDir + '**/index.coffee').forEach(function (f) {
     var chunkName = path.relative(srcDir, f);
     entry[chunkName.slice(0, chunkName.indexOf(".coffee"))] = [ f ];
 });
