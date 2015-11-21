@@ -11,9 +11,9 @@ baseConfig.devServer = {
 };
 //添加jsloader
 baseConfig.module.loaders.push({
-    test: /\.coffee$/,
-    exclude: /(node_modules|bower_components|lib)/,
-    loaders: ['coffee']
+    test: /\.cjsx/,
+    exclude: /(node_modules|bower_components)/,
+    loaders: ['react-hot', 'coffee', 'cjsx']
 });
 //添加plugin
 var webpack = require("webpack");

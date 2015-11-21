@@ -2,9 +2,9 @@
 var entry = {};
 var path = require('path');
 var srcDir = './src/';
-require('glob').sync(srcDir + '**/index.coffee').forEach(function (f) {
+require('glob').sync(srcDir + '**/index.cjsx').forEach(function (f) {
     var chunkName = path.relative(srcDir, f);
-    entry[chunkName.slice(0, chunkName.indexOf(".coffee"))] = [ f ];
+    entry[chunkName.slice(0, chunkName.lastIndexOf("."))] = [ f ];
 });
 module.exports = {
     entry: entry,
@@ -23,6 +23,14 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: 'style!css'
+            }, {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                loaders: ['babel']
+            }, {
+                test: /\.coffee$/,
+                exclude: /(node_modules|bower_components)/,
+                loaders: ['coffee']
             }, {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loaders: [

@@ -4,8 +4,8 @@ var baseConfig = require('./webpack.config.js');
 baseConfig.output.publicPath = "/lib/";
 //添加jsloader
 baseConfig.module.loaders.push({
-    test: /\.coffee?$/,
-    exclude: /(node_modules|bower_components|lib)/,
-    loaders: ['babel', 'coffee']
+    test: /\.cjsx/,
+    exclude: /(node_modules|bower_components)/,
+    loaders: ['coffee', 'cjsx']
 });
 module.exports = baseConfig;
