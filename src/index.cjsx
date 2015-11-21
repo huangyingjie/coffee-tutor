@@ -1,5 +1,7 @@
 React = require 'react'
 ReactDOM = require 'react-dom'
+text = require './text.js'
+text.test()
 
 class MainPage extends React.Component
     constructor: (@props) ->
